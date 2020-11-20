@@ -84,6 +84,9 @@ limitations under the License.
         <requireCommand>OnWithTimedOff</requireCommand>
       </include>
       <include cluster="Level Control" client="false" server="true" clientLocked="true" serverLocked="false"/>
+      <include cluster="NetworkProvisioning" client="false" server="true" clientLocked="true" serverLocked="false">
+        <requireCommand>SetRegulatoryConfigResponse</requireCommand>
+      </include>
       <include cluster="ZLL Commissioning" client="false" server="true" clientLocked="true" serverLocked="false">
         <requireCommand>ScanRequest</requireCommand>
         <requireCommand>DeviceInformationRequest</requireCommand>

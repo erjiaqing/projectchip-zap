@@ -20,18 +20,24 @@
     "green-power.xml",
     "green-power-devices.xml",
     "silabs.xml",
+    "chip.xml",
     "lo-devices.xml",
     "wwah-silabs.xml",
     "wwah-silabs-devices.xml",
     "sample-extensions.xml"
   ],
-
   "manufacturersXml": "../shared/manufacturers.xml",
   "options": {
     "text": {
-      "defaultResponsePolicy": ["Always", "Conditional", "Never"]
+      "defaultResponsePolicy": [
+        "Always",
+        "Conditional",
+        "Never"
+      ]
     },
-    "bool": ["commandDiscovery"]
+    "bool": [
+      "commandDiscovery"
+    ]
   },
   "defaults": {
     "text": {

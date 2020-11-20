@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+Copyright (c) 2008,2020 Silicon Labs.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<configurator>
+  <domain name="CHIP" spec="chip-0.7" dependsOn="zcl-1.0-07-5123-03" certifiable="true"/>
+  <enum name="NetworkProvisioningError" type="ENUM8">
+    <item name="NoError" value="0x00"/>
+    <item name="0x01" value="0x01"/>
+    <item name="0x02" value="0x02"/>
+    <item name="0x03" value="0x03"/>
+    <item name="0x04" value="0x04"/>
+    <item name="0x05" value="0x05"/>
+    <item name="0x06" value="0x06"/>
+    <item name="0x07" value="0x07"/>
+    <item name="0x08" value="0x08"/>
+    <item name="0x09" value="0x09"/>
+    <item name="0x10" value="0x10"/>
+    <item name="0x11" value="0x11"/>
+    <item name="0x12" value="0x12"/>
+    <item name="0x13" value="0x13"/>
+    <item name="0x14" value="0x14"/>
+    <item name="0x15" value="0x15"/>
+    <item name="UnknownError" value="0x16"/>
+  </enum>
+  <cluster>
+    <name>Network Provisioning</name>
+    <domain>CHIP</domain>
+    <description>The network provisioning cluster.</description>
+    <code>0x9999</code>
+    <define>NETWORK_PROVISIONING_CLUSTER</define>
+    <client tick="false" init="false">true</client>
+    <server tick="false" init="false">true</server>
+    <command source="client" code="0x06" name="AddNetwork" optional="false" cli="chip networkprov serregulatoryconf">
+      <description>
+      This SHALL add a network in [Networks Attribute] if there is not already a network configuration with the same hash, and if the attribute’s list length is less than [MaxNetworks Attribute].
+      </description>
+      <arg name="Credentials" type="OCTET_STRING" />
+      <arg name="SSID" type="OCTET_STRING" />
+      <arg name="BSSID" type="OCTET_STRING" />
+      <arg name="OperationalDataset" type="OCTET_STRING" />
+      <arg name="Breadcrumb" type="INT16U" />
+      <arg name="TimeoutMs" type="INT32U" />
+    </command>
+    <command source="server" code="0x07" name="AddNetworkResponse" optional="false" cli="chip networkprov serregulatoryconfresp">
+      <description>
+      IdentifierHash only present if ErrorCode is OK.
+      </description>
+      <arg name="ErrorCode" type="NetworkProvisioningError"/>
+      <arg name="ErrorText" type="CHAR_STRING"/>
+      <arg name="IdentifierHash" type="CHAR_STRING"/>
+    </command>
+  </cluster>
+  <!-- CHIP Clusters -->
+</configurator>

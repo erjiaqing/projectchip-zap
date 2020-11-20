@@ -1238,6 +1238,44 @@
               "reportableChange": 0
             }
           ]
+        },
+        {
+          "name": "NetworkProvisioning",
+          "code": 39321,
+          "mfgCode": null,
+          "define": "NETWORK_PROVISIONING_CLUSTER",
+          "side": "client",
+          "enabled": 1,
+          "commands": [
+            {
+              "name": "SetRegulatoryConfig",
+              "code": 0,
+              "mfgCode": null,
+              "source": "client",
+              "incoming": 1,
+              "outgoing": 0
+            }
+          ],
+          "attributes": []
+        },
+        {
+          "name": "NetworkProvisioning",
+          "code": 39321,
+          "mfgCode": null,
+          "define": "NETWORK_PROVISIONING_CLUSTER",
+          "side": "server",
+          "enabled": 1,
+          "commands": [
+            {
+              "name": "SetRegulatoryConfigResponse",
+              "code": 1,
+              "mfgCode": null,
+              "source": "server",
+              "incoming": 0,
+              "outgoing": 1
+            }
+          ],
+          "attributes": []
         }
       ]
     }
